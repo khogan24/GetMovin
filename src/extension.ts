@@ -1,3 +1,8 @@
+/**
+ * Kevin Hogan, November 2021
+ * 
+ */
+
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
@@ -98,5 +103,6 @@ class foo{
 		3 add 'snooze'
 		4 repeat timer for every 30
 		5 add a 'off' setting to prevent further alerts, after 4
+		6 add other reminders, ie water, stretches, and eye rest
  */
 
