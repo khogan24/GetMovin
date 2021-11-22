@@ -44,18 +44,18 @@ export function activate(context: vscode.ExtensionContext) {
 		vscode.commands.registerCommand('movin.freakout',async () => {
 			// The code you place here will be executed every time your command is executed
 			// Display a message box to the user
-			let flag = true;
-			let decorationsArray: vscode.DecorationOptions[] = []
-
-			await vscode.window.showInformationMessage(' In 30 mins, get up and strecth','Ok');
-			// both of these give analogous results,active gives the one the user is in, visible are all rendered on screen
-			// const editor = vscode.window.activeTextEditor; 
 			const openEditor = vscode.window.visibleTextEditors[0]
-
 			if(!openEditor)
 			{
 				return
 			}
+			let flag = true;
+			let decorationsArray: vscode.DecorationOptions[] = []
+			
+			await vscode.window.showInformationMessage(' In 30 mins, get up and stretch','Ok');
+			// both of these give analogous results,active gives the one the user is in, visible are all rendered on screen
+			// const editor = vscode.window.activeTextEditor; 
+			
 
 			// check if there is no selection
 			if (openEditor.selection.isEmpty) {
@@ -72,7 +72,7 @@ export function activate(context: vscode.ExtensionContext) {
 			// js and ts have no way of knowing if a promise has been fulfilled or not so :
 			setTimeout(async () => {//30 mins start here
 				openEditor.setDecorations(decorationType,decorationsArray)
-				await vscode.window.showInformationMessage('TIME TO MOVE','yes','no');// blocking, so text wont revert untill response
+				await vscode.window.showInformationMessage('TIME TO MOVE','yes');// blocking, so text wont revert untill response
 				
 				setTimeout(() => {// revert color scheme, does not need to be a timeout here as above line is blocking
 					openEditor.setDecorations(decorationType,[])
@@ -87,13 +87,6 @@ export function activate(context: vscode.ExtensionContext) {
 // this method is called when your extension is deactivated
 export function deactivate() {;}
 
-class foo{
-	public readonly bar : vscode.ColorTheme;
-	constructor(c: vscode.ColorTheme)
-	{
-		this.bar = c;
-	}
-}
 
 
 /*

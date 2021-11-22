@@ -3,6 +3,7 @@
 	"displayName": "GetMovin",
 	"description": "Keeps you active",
 	"version": "0.0.1",
+	"repository": "git@github.com:khogan24/GetMovin.git",
 	"engines": {
 		"vscode": "^1.62.0"
 	},
